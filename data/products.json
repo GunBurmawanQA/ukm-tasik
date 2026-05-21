@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Mukena Bordir Premium",
+        "category": "Muslim Wear",
+        "price": "$18 / pcs",
+        "description": "Handmade embroidered mukena crafted by Tasikmalaya artisans.",
+        "image": "images/Mukena.jpeg",
+        "page": "product-mukena-bordir-premium.html"
+    },
+
+    {
+        "name": "Anyaman Bambu Tasik",
+        "category": "Handicraft",
+        "price": "$12 / pcs",
+        "description": "Eco-friendly handmade bamboo crafts from local SMEs.",
+        "image": "images/bamboo.jpeg",
+        "page": "product-anyaman-bambu-tasik.html"
+    },
+
+    {
+        "name": "Fashion Bordir Muslim",
+        "category": "Fashion",
+        "price": "$25 / set",
+        "description": "Modern Muslim fashion products with Tasik embroidery style.",
+        "image": "images/embroidery.jpeg",
+        "page": "product-fashion-bordir-muslim.html"
+    }
+]

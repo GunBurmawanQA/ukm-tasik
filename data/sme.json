@@ -1,0 +1,25 @@
+[
+    {
+        "name": "Gun's Fashion",
+        "category": "Muslim Fashion",
+        "description": "Manufacturer of modest wear and embroidery products.",
+        "image": "images/embroidery.jpeg",
+        "profile": "profile-gun.html"
+    },
+
+    {
+        "name": "Bamboo Craft ID",
+        "category": "Handicrafts",
+        "description": "Eco-friendly bamboo craft products from local artisans.",
+        "image": "images/bamboo.jpeg",
+        "profile": "profile-bamboo.html"
+    },
+
+    {
+        "name": "Tasik Mukena Craft",
+        "category": "Mukena Artisan",
+        "description": "Handmade mukena producer specializing in embroidery and Muslim prayer wear from Tasikmalaya.",
+        "image": "images/Mukena.jpeg",
+        "profile": "profile-Mukena.html"
+    }
+]

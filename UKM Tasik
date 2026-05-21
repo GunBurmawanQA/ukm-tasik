@@ -1,0 +1,17 @@
+tasik-portal/
+│
+├── index.html
+├── about.html
+├── directory.html
+├── contact.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   └── script.js
+│
+├── images/
+│
+└── data/
+    └── sme.json
