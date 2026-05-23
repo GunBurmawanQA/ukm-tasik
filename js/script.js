@@ -1,8 +1,93 @@
 const smeContainer = document.getElementById("smeContainer");
 const smeSearchInput = document.getElementById("smeSearchInput");
 const smeEmptyMessage = document.getElementById("smeEmptyMessage");
+const header = document.querySelector(".header");
+const navToggle = document.querySelector(".nav-toggle");
+const themeToggle = document.querySelector(".theme-toggle");
+const themeToggleIcon = document.querySelector(".theme-toggle-icon");
+const navLinks = document.querySelectorAll(".nav-link");
+const pageSections = document.querySelectorAll("section[id], footer[id]");
+const productsContainer = document.getElementById("productsContainer");
+
+function applyTheme(theme) {
+    const isDark = theme === "dark";
+
+    document.body.classList.toggle("dark-mode", isDark);
+
+    if (themeToggle) {
+        themeToggle.setAttribute("aria-pressed", isDark);
+        themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    }
+
+    if (themeToggleIcon) {
+        themeToggleIcon.textContent = isDark ? "L" : "D";
+    }
+}
+
+const savedTheme = localStorage.getItem("tasik-theme");
+
+if (savedTheme) {
+    applyTheme(savedTheme);
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+        const nextTheme = document.body.classList.contains("dark-mode") ? "light" : "dark";
+
+        localStorage.setItem("tasik-theme", nextTheme);
+        applyTheme(nextTheme);
+    });
+}
+
+function setActiveNavLink(sectionId) {
+    navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${sectionId}`);
+    });
+}
+
+if (navToggle && header) {
+    navToggle.addEventListener("click", () => {
+        const isOpen = header.classList.toggle("nav-open");
+
+        navToggle.setAttribute("aria-expanded", isOpen);
+        navToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    });
+}
+
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        const targetId = link.getAttribute("href").replace("#", "");
+
+        setActiveNavLink(targetId);
+        header.classList.remove("nav-open");
+
+        if (navToggle) {
+            navToggle.setAttribute("aria-expanded", "false");
+            navToggle.setAttribute("aria-label", "Open navigation menu");
+        }
+    });
+});
+
+if ("IntersectionObserver" in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setActiveNavLink(entry.target.id);
+            }
+        });
+    }, {
+        rootMargin: "-35% 0px -50% 0px",
+        threshold: 0
+    });
+
+    pageSections.forEach(section => sectionObserver.observe(section));
+}
 
 function renderSmes(smes) {
+    if (!smeContainer || !smeEmptyMessage) {
+        return;
+    }
+
     smeContainer.innerHTML = "";
 
     smes.forEach(sme => {
@@ -35,8 +120,15 @@ function renderSmes(smes) {
     smeEmptyMessage.style.display = smes.length ? "none" : "block";
 }
 
-fetch("data/sme.json")
-    .then(response => response.json())
+if (smeContainer && smeSearchInput && smeEmptyMessage) {
+    fetch("data/sme.json")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Unable to load SME data");
+        }
+
+        return response.json();
+    })
 
     .then(data => {
 
@@ -57,12 +149,23 @@ fetch("data/sme.json")
 
         });
 
+    })
+    .catch(() => {
+        smeContainer.innerHTML = "";
+        smeEmptyMessage.textContent = "SME data is temporarily unavailable.";
+        smeEmptyMessage.style.display = "block";
     });
+}
 
-    const productsContainer = document.getElementById("productsContainer");
+if (productsContainer) {
+    fetch("data/products.json")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Unable to load product data");
+        }
 
-fetch("data/products.json")
-    .then(response => response.json())
+        return response.json();
+    })
 
     .then(products => {
 
@@ -97,4 +200,8 @@ fetch("data/products.json")
 
         });
 
+    })
+    .catch(() => {
+        productsContainer.innerHTML = '<p class="empty-message product-empty">Product data is temporarily unavailable.</p>';
     });
+}

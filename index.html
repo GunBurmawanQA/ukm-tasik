@@ -19,17 +19,23 @@
             Tasik Global Hub
         </div>
 
+        <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <nav class="nav">
-            <a href="#home">Home</a>
-            <a href="#directory">Directory</a>
-            <a href="#">Products</a>
-            <a href="#">Insights</a>
-            <a href="#">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#directory" class="nav-link">Directory</a>
+            <a href="#products" class="nav-link">Products</a>
+            <a href="#insights" class="nav-link">Insights</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </nav>
 
         <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
-            <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+            <span class="theme-toggle-icon" aria-hidden="true">D</span>
         </button>
 
     </header>
@@ -41,13 +47,18 @@
 
         <div class="hero-content">
 
+            <p class="hero-eyebrow">
+                Tasikmalaya SME Sourcing Hub
+            </p>
+
             <h1>
-                Connecting Tasikmalaya SMEs with Global Buyers
+                Connecting Global Buyers with Authentic Tasikmalaya Handmade Products
             </h1>
 
-            <p>
-                Discover verified Indonesian suppliers, handcrafted products,
-                and export-ready SMEs from Tasikmalaya.
+            <p class="hero-subheadline">
+                Discover handmade products from local artisans, including Muslim fashion,
+                embroidery, bamboo crafts, and ethical sourcing opportunities from
+                Tasikmalaya, Indonesia.
             </p>
 
             <div class="hero-buttons">
@@ -60,6 +71,12 @@
                     View Products
                 </a>
 
+            </div>
+
+            <div class="hero-trust" aria-label="Marketplace strengths">
+                <span>Handmade Products</span>
+                <span>Local Artisans</span>
+                <span>Ethical Production</span>
             </div>
 
         </div>
@@ -121,6 +138,77 @@
 
 </section>
 
+<!-- INSIGHTS -->
+
+<section class="info-section" id="insights">
+
+    <div class="section-title">
+
+        <h2>Market Insights</h2>
+
+        <p>
+            Practical export notes and supplier readiness highlights for
+            Tasikmalaya SMEs.
+        </p>
+
+    </div>
+
+    <div class="insight-grid">
+
+        <article class="insight-item">
+            <h3>Export Readiness</h3>
+            <p>Selected SMEs are prepared with product information, pricing, and buyer communication support.</p>
+        </article>
+
+        <article class="insight-item">
+            <h3>Local Craft Strength</h3>
+            <p>Tasikmalaya products combine embroidery, modest fashion, and bamboo craft traditions.</p>
+        </article>
+
+        <article class="insight-item">
+            <h3>Buyer Focus</h3>
+            <p>The directory helps buyers compare categories, products, and supplier profiles quickly.</p>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about-section" id="about">
+
+    <div class="about-content">
+
+        <div class="section-title">
+
+            <h2>About Tasik Global Hub</h2>
+
+            <p>
+                A digital gateway for discovering verified SMEs, product
+                showcases, and business opportunities from Tasikmalaya.
+            </p>
+
+        </div>
+
+        <div class="about-grid">
+
+            <div>
+                <h3>For Buyers</h3>
+                <p>Find supplier profiles, product categories, and contact information in one organized place.</p>
+            </div>
+
+            <div>
+                <h3>For SMEs</h3>
+                <p>Present local products with a cleaner digital profile for broader market access.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 <!-- FOOTER -->
 
 <footer class="footer" id="contact">
@@ -147,10 +235,10 @@
 
             <h4>Quick Links</h4>
 
-            <a href="#">Home</a>
-            <a href="#">Directory</a>
-            <a href="#">Products</a>
-            <a href="#">Insights</a>
+            <a href="#home">Home</a>
+            <a href="#directory">Directory</a>
+            <a href="#products">Products</a>
+            <a href="#insights">Insights</a>
 
         </div>
 
@@ -161,10 +249,10 @@
 
             <h4>Categories</h4>
 
-            <a href="#">Handicrafts</a>
-            <a href="#">Fashion</a>
-            <a href="#">Embroidery</a>
-            <a href="#">Food Products</a>
+            <a href="#directory">Handicrafts</a>
+            <a href="#directory">Fashion</a>
+            <a href="#directory">Embroidery</a>
+            <a href="#products">Food Products</a>
 
         </div>
 
@@ -175,9 +263,9 @@
 
             <h4>Contact</h4>
 
-            <p>Email: info@tasikglobalhub.com</p>
+            <p>Email: <a href="mailto:info@tasikglobalhub.com">info@tasikglobalhub.com</a></p>
 
-            <p>WhatsApp: +62 852 2387 6419</p>
+            <p>WhatsApp: <a href="https://wa.me/6285223876419">+62 852 2387 6419</a></p>
 
             <p>Tasikmalaya, Indonesia</p>
 
@@ -191,7 +279,7 @@
     <div class="footer-bottom">
 
         <p>
-            © 2026 Tasik Global Hub. All rights reserved.
+            &copy; 2026 Tasik Global Hub. All rights reserved.
         </p>
 
     </div>
