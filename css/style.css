@@ -1873,3 +1873,298 @@ Refinement patch v1 · CSS
 /* ============================================================
    END BUTTON SYSTEM REFINEMENT PATCH v1.0
    ============================================================ */
+
+/* ============================================================
+   MOBILE RHYTHM REFINEMENT PATCH v1.0
+   Scope: screens 768px and below only.
+   Notes: append-only; no desktop layout, palette, typography
+          scale, image system, card design, or HTML changes.
+   ============================================================ */
+
+@media (max-width: 768px) {
+    :root {
+        --mobile-section-y: 72px;
+        --mobile-section-x: 5%;
+        --mobile-card-gap: 22px;
+        --mobile-profile-gap: 24px;
+    }
+
+    /* Hero: reduce opening-screen heaviness while keeping an editorial first view. */
+    .hero {
+        min-height: auto;
+        padding: 132px var(--mobile-section-x) 58px;
+        align-items: center;
+    }
+
+    .hero-content {
+        max-width: 34rem;
+    }
+
+    .hero-eyebrow {
+        margin-bottom: 14px;
+    }
+
+    .hero-subheadline {
+        margin-bottom: 26px;
+    }
+
+    .hero-buttons {
+        gap: 12px;
+    }
+
+    .hero-trust {
+        margin-top: 24px;
+        gap: 10px 16px;
+    }
+
+    .hero::after {
+        bottom: 26px;
+    }
+
+    /* Main sections: one calm mobile cadence across directory, products, insights, and about. */
+    .featured-smes,
+    .products-section,
+    .info-section,
+    .about-section {
+        padding: var(--mobile-section-y) var(--mobile-section-x);
+    }
+
+    .section-title {
+        margin-bottom: 38px;
+    }
+
+    .section-title p {
+        max-width: 34rem;
+    }
+
+    /* Card stacks: tighter mobile scan rhythm without changing card structure. */
+    .sme-container,
+    .products-container,
+    .insight-grid,
+    .about-grid {
+        gap: var(--mobile-card-gap);
+    }
+
+    .sme-content,
+    .product-content,
+    .insight-item,
+    .about-section .about-grid > div,
+    .story-card,
+    .process-card {
+        padding: 24px;
+    }
+
+    /* Profile pages: soften the long vertical run between hero, story, quote, and actions. */
+    .profile-page {
+        padding: 96px var(--mobile-section-x) 64px;
+    }
+
+    .profile-hero {
+        gap: var(--mobile-profile-gap);
+        margin-bottom: 34px;
+    }
+
+    .story-grid {
+        gap: 18px;
+        margin-bottom: 22px;
+    }
+
+    .quote-card {
+        margin: 22px 0;
+        padding: 26px 24px;
+    }
+
+    .quote-card cite {
+        margin-top: 12px;
+    }
+
+    .process-card {
+        margin-top: 0;
+    }
+
+    .story-badges,
+    .process-list {
+        gap: 10px;
+        margin-top: 22px;
+    }
+
+    .profile-actions {
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    /* Footer: reduce desktop-weighted spacing while preserving readable touch targets. */
+    .footer {
+        padding-top: 62px;
+    }
+
+    .footer-container {
+        gap: 30px;
+        padding: 0 var(--mobile-section-x) 42px;
+    }
+
+    .footer-column h3,
+    .footer-column h4 {
+        margin-bottom: 14px;
+    }
+
+    .footer-column p,
+    .footer-column a {
+        margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+        padding: 20px var(--mobile-section-x);
+    }
+}
+
+@media (max-width: 420px) {
+    /* Narrow phones: gently reduce only the largest vertical spaces. */
+    .hero {
+        padding-top: 122px;
+        padding-bottom: 52px;
+    }
+
+    .featured-smes,
+    .products-section,
+    .info-section,
+    .about-section {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    .section-title {
+        margin-bottom: 32px;
+    }
+
+    .profile-page {
+        padding-top: 90px;
+        padding-bottom: 58px;
+    }
+
+    .quote-card {
+        padding: 24px 22px;
+    }
+}
+
+/* ============================================================
+   END MOBILE RHYTHM REFINEMENT PATCH v1.0
+   ============================================================ */
+
+/* ============================================================
+   SECTION FLOW REFINEMENT PATCH v1.0
+   Scope: section-to-section background rhythm and scroll flow.
+   Notes: append-only; no layout, HTML, palette, typography scale,
+          card/image/button system, or animation changes.
+   ============================================================ */
+
+/* Hero exit: a softer handoff into the directory without changing hero content. */
+.hero {
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 120px;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent, rgba(255,250,241,0.13));
+    z-index: 0;
+}
+
+.hero-content,
+.hero::after {
+    z-index: 1;
+}
+
+/* Directory: subtly warmer entrance after the photographic hero. */
+.featured-smes {
+    background:
+        linear-gradient(180deg, rgba(255,250,241,0.68) 0%, rgba(255,250,241,0) 28%),
+        var(--color-surface);
+}
+
+/* Products: preserve page tone while adding a quiet catalog band. */
+.products-section {
+    background:
+        linear-gradient(180deg, rgba(239,229,213,0.2) 0%, rgba(247,242,233,0) 34%, rgba(255,250,241,0.28) 100%),
+        var(--color-page);
+}
+
+/* Insights: a gently framed editorial section between catalog and about. */
+.info-section {
+    background:
+        linear-gradient(180deg, rgba(255,250,241,0.5) 0%, rgba(255,250,241,0) 32%, rgba(239,229,213,0.22) 100%),
+        var(--color-surface);
+}
+
+/* About: soft close to the body content before the footer. */
+.about-section {
+    background:
+        linear-gradient(180deg, rgba(247,242,233,0) 0%, rgba(239,229,213,0.28) 100%),
+        var(--color-page);
+}
+
+/* Profile pages: keep the single-page story feeling connected and editorial. */
+.profile-page {
+    background:
+        linear-gradient(180deg, rgba(255,250,241,0.98) 0%, rgba(247,242,233,0.96) 42%, rgba(239,229,213,0.58) 100%),
+        var(--color-page);
+}
+
+/* Footer entry: soften the transition from light editorial content to dark footer. */
+.footer {
+    border-top: 1px solid rgba(185,133,77,0.18);
+}
+
+/* Desktop-only breathing: keep mobile rhythm governed by the mobile patch. */
+@media (min-width: 769px) {
+    .featured-smes,
+    .products-section,
+    .info-section,
+    .about-section {
+        padding-top: 116px;
+        padding-bottom: 116px;
+    }
+
+    .products-section,
+    .about-section {
+        position: relative;
+    }
+
+    .products-section::before,
+    .about-section::before {
+        content: "";
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        top: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(76,61,43,0.12), transparent);
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile: preserve compact rhythm while keeping section changes perceptible. */
+    .hero::before {
+        height: 84px;
+        background: linear-gradient(180deg, transparent, rgba(255,250,241,0.16));
+    }
+
+    .featured-smes,
+    .products-section,
+    .info-section,
+    .about-section {
+        background-size: 100% 100%;
+    }
+
+    .footer {
+        border-top-color: rgba(185,133,77,0.14);
+    }
+}
+
+/* ============================================================
+   END SECTION FLOW REFINEMENT PATCH v1.0
+   ============================================================ */
