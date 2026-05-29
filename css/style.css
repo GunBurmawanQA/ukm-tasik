@@ -1383,3 +1383,493 @@ Refinement patch v1 · CSS
 .insight-item {
     padding: 32px !important;
 }
+/* Profile page card spacing fix */
+
+.story-card,
+.process-card {
+    padding: 28px !important;
+}
+
+/* ============================================================
+   TYPOGRAPHY REFINEMENT PATCH v1.0
+   Scope: component-level type scale, paragraph rhythm, and
+          mobile text balance only.
+   Notes: append-only; no layout, color, border, image, shadow,
+          navigation, or animation changes.
+   ============================================================ */
+
+:root {
+    --type-hero-title: clamp(2.7rem, 5.2vw, 3.85rem);
+    --type-profile-title: clamp(2.35rem, 4.4vw, 3rem);
+    --type-section-title: clamp(2rem, 3.6vw, 2.65rem);
+    --type-card-title: 1.375rem;
+    --type-body-copy: 1rem;
+    --type-lead-copy: 1.125rem;
+    --leading-title: 1.14;
+    --leading-copy: 1.74;
+    --leading-lead: 1.78;
+}
+
+/* Hero and profile titles: softer scale with calmer editorial rhythm. */
+.hero-content h1 {
+    font-size: var(--type-hero-title);
+    line-height: var(--leading-title);
+    font-weight: 750;
+    letter-spacing: 0;
+    margin-bottom: 22px;
+}
+
+.profile-hero h1 {
+    font-size: var(--type-profile-title);
+    line-height: var(--leading-title);
+    font-weight: 750;
+    letter-spacing: 0;
+    margin-bottom: 16px;
+}
+
+/* Section introductions: consistent hierarchy without changing section spacing. */
+.section-title h2 {
+    font-size: var(--type-section-title);
+    line-height: 1.18;
+    font-weight: 750;
+    letter-spacing: 0;
+    margin-bottom: 14px;
+}
+
+.section-title p {
+    max-width: 66ch;
+    margin-inline: auto;
+    font-size: var(--type-lead-copy);
+    line-height: var(--leading-lead);
+}
+
+/* Eyebrow and category labels: quieter export/editorial metadata. */
+.hero-eyebrow,
+.profile-eyebrow,
+.sme-content .sme-category,
+.product-category {
+    letter-spacing: 0.075em;
+    font-weight: 700;
+}
+
+.hero-eyebrow,
+.profile-eyebrow {
+    line-height: 1.35;
+}
+
+/* Card text: one calm card-level scale across marketplace and profile surfaces. */
+.sme-content h3,
+.product-content h3,
+.insight-item h3,
+.about-grid h3,
+.story-card h2,
+.process-card h2 {
+    font-size: var(--type-card-title);
+    line-height: 1.26;
+    font-weight: 750;
+    letter-spacing: 0;
+}
+
+.sme-content h3,
+.product-content h3 {
+    margin-bottom: 12px;
+}
+
+.insight-item h3,
+.about-grid h3,
+.story-card h2,
+.process-card h2 {
+    margin-bottom: 13px;
+}
+
+.sme-content p,
+.product-content p,
+.insight-item p,
+.about-grid p,
+.story-card p,
+.process-card p {
+    font-size: var(--type-body-copy);
+    line-height: var(--leading-copy);
+}
+
+.sme-content p,
+.product-content p {
+    margin-bottom: 18px;
+}
+
+.profile-lead {
+    max-width: 66ch;
+    font-size: var(--type-lead-copy);
+    line-height: var(--leading-lead);
+}
+
+.quote-card blockquote {
+    line-height: 1.5;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.footer-column h3,
+.footer-column h4 {
+    line-height: 1.25;
+    letter-spacing: 0;
+}
+
+.footer-column p,
+.footer-column a,
+.footer-bottom p {
+    line-height: 1.7;
+}
+
+/* Mobile typography: preserve layout while reducing visual noise on narrow screens. */
+@media (max-width: 768px) {
+    :root {
+        --type-hero-title: clamp(2.25rem, 10vw, 2.65rem);
+        --type-profile-title: clamp(2rem, 8.8vw, 2.35rem);
+        --type-section-title: clamp(1.8rem, 7.6vw, 2.05rem);
+        --type-card-title: 1.25rem;
+        --type-lead-copy: 1.0625rem;
+        --leading-title: 1.16;
+        --leading-copy: 1.7;
+        --leading-lead: 1.72;
+    }
+
+    .hero-content h1 {
+        margin-bottom: 18px;
+    }
+
+    .hero-subheadline,
+    .section-title p,
+    .profile-lead {
+        line-height: var(--leading-lead);
+    }
+
+    .hero-subheadline {
+        font-size: var(--type-lead-copy);
+    }
+
+    .section-title h2 {
+        margin-bottom: 12px;
+    }
+
+    .story-card h2,
+    .process-card h2 {
+        margin-bottom: 12px;
+    }
+}
+
+/* ============================================================
+   END TYPOGRAPHY REFINEMENT PATCH v1.0
+   ============================================================ */
+
+/* ============================================================
+   IMAGE SYSTEM REFINEMENT PATCH v1.0
+   Scope: component-level image presentation only.
+   Notes: append-only; no layout, color, typography, navigation,
+          animation, shadow, border, or HTML structure changes.
+   ============================================================ */
+
+:root {
+    --image-card-padding: 20px;
+    --image-card-padding-mobile: 16px;
+    --image-sme-height: 244px;
+    --image-product-height: 248px;
+    --image-profile-height: clamp(340px, 36vw, 420px);
+    --image-profile-padding: 24px;
+}
+
+/* Supplier catalog images: composed and consistent without cropping. */
+.sme-card > img {
+    height: var(--image-sme-height);
+    padding: var(--image-card-padding);
+    box-sizing: border-box;
+    object-fit: contain;
+    object-position: 50% 50%;
+}
+
+/* Product catalog images: slightly taller to support product inspection. */
+.product-card > img {
+    height: var(--image-product-height);
+    padding: var(--image-card-padding);
+    box-sizing: border-box;
+    object-fit: contain;
+    object-position: 50% 50%;
+}
+
+/* Profile hero images: preserve the premium editorial frame. */
+.profile-visual > img {
+    height: var(--image-profile-height);
+    padding: var(--image-profile-padding);
+    box-sizing: border-box;
+    object-fit: contain;
+    object-position: 50% 50%;
+}
+
+/* Mobile image rhythm: keep cards balanced and profile images substantial. */
+@media (max-width: 768px) {
+    :root {
+        --image-sme-height: 212px;
+        --image-product-height: 218px;
+        --image-profile-height: 286px;
+        --image-profile-padding: 18px;
+    }
+
+    .sme-card > img,
+    .product-card > img {
+        padding: var(--image-card-padding-mobile);
+    }
+
+    .profile-visual > img {
+        padding: var(--image-profile-padding);
+    }
+}
+
+/* Narrow phones: reduce image panels gently without changing the card layout. */
+@media (max-width: 420px) {
+    :root {
+        --image-sme-height: 204px;
+        --image-product-height: 210px;
+        --image-profile-height: 268px;
+    }
+}
+
+/* ============================================================
+   END IMAGE SYSTEM REFINEMENT PATCH v1.0
+   ============================================================ */
+
+/* ============================================================
+   CARD INTERACTION REFINEMENT PATCH v1.0
+   Scope: component-level card elevation, borders, and motion.
+   Notes: append-only; no layout, typography, color palette,
+          navigation, animation system, or HTML structure changes.
+   ============================================================ */
+
+:root {
+    --card-shadow-rest: 0 14px 34px rgba(58,45,31,0.075);
+    --card-shadow-hover: 0 18px 42px rgba(58,45,31,0.115);
+    --card-border-rest: var(--color-border);
+    --card-border-hover: rgba(185,133,77,0.24);
+    --card-lift-subtle: translateY(-3px);
+    --card-transition-calm: transform 0.38s ease, box-shadow 0.38s ease, border-color 0.38s ease;
+}
+
+/* Shared card surface: consistent tactile baseline for all card families. */
+.sme-card,
+.product-card,
+.story-card,
+.process-card,
+.quote-card,
+.insight-item,
+.about-section .about-grid > div {
+    border-color: var(--card-border-rest);
+    box-shadow: var(--card-shadow-rest);
+    transition: var(--card-transition-calm);
+}
+
+/* Interactive directory/product cards: calmer lift and quieter edge emphasis. */
+.sme-card:hover,
+.product-card:hover,
+.product-card:focus-visible {
+    border-color: var(--card-border-hover);
+    box-shadow: var(--card-shadow-hover);
+    transform: var(--card-lift-subtle);
+}
+
+/* Editorial cards gain a soft tactile response without feeling clickable. */
+.story-card:hover,
+.process-card:hover,
+.quote-card:hover,
+.insight-item:hover,
+.about-section .about-grid > div:hover {
+    border-color: rgba(185,133,77,0.18);
+    box-shadow: 0 16px 38px rgba(58,45,31,0.095);
+    transform: translateY(-2px);
+}
+
+/* Product card internals: reduce active motion while preserving affordance. */
+.product-card:hover > img,
+.product-card:focus-visible > img {
+    transform: scale(1.01);
+}
+
+.product-card:hover .product-button,
+.product-card:focus-visible .product-button {
+    transform: translateY(-1px);
+}
+
+.product-card:hover .product-button::after,
+.product-card:focus-visible .product-button::after {
+    transform: translateX(3px);
+}
+
+/* Supplier card link focus: scoped to the real keyboard target inside the card. */
+.sme-content a:focus-visible {
+    outline: 2px solid rgba(185,133,77,0.42);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+/* Touch/mobile: remove hover lift and image motion on narrow screens. */
+@media (max-width: 768px) {
+    .sme-card:hover,
+    .product-card:hover,
+    .story-card:hover,
+    .process-card:hover,
+    .quote-card:hover,
+    .insight-item:hover,
+    .about-section .about-grid > div:hover {
+        border-color: var(--card-border-rest);
+        box-shadow: var(--card-shadow-rest);
+        transform: none;
+    }
+
+    .product-card:hover > img {
+        transform: none;
+    }
+
+    .product-card:hover .product-button {
+        transform: none;
+    }
+
+    .product-card:hover .product-button::after {
+        transform: none;
+    }
+}
+
+/* ============================================================
+   END CARD INTERACTION REFINEMENT PATCH v1.0
+   ============================================================ */
+
+/* ============================================================
+   BUTTON SYSTEM REFINEMENT PATCH v1.0
+   Scope: existing CTA and inline card link components only.
+   Notes: append-only; no HTML, layout, palette, or typography
+          hierarchy changes.
+   ============================================================ */
+
+:root {
+    --button-radius: var(--radius-ui, 8px);
+    --button-transition-calm: background-color 0.36s ease, color 0.36s ease, border-color 0.36s ease, transform 0.36s ease, box-shadow 0.36s ease;
+    --button-focus-ring: 0 0 0 4px rgba(185,133,77,0.24);
+    --button-shadow-rest: 0 10px 24px rgba(36,27,18,0.14);
+    --button-shadow-hover: 0 13px 28px rgba(36,27,18,0.18);
+}
+
+/* Hero CTA baseline: aligned rhythm and calmer tactile movement. */
+.btn-primary,
+.btn-secondary {
+    min-height: 52px;
+    padding: 14px 28px;
+    border-radius: var(--button-radius);
+    line-height: 1.2;
+    box-shadow: var(--button-shadow-rest);
+    transition: var(--button-transition-calm);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--button-shadow-hover);
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.product-button:focus-visible {
+    outline: none;
+    box-shadow: var(--button-shadow-rest), var(--button-focus-ring);
+}
+
+/* Secondary action: keep contrast clear without the previous abrupt white flip. */
+.btn-secondary {
+    border-color: rgba(255,255,255,0.68);
+    background-color: rgba(255,255,255,0.1);
+}
+
+.btn-secondary:hover {
+    border-color: rgba(255,250,241,0.9);
+    background-color: rgba(255,250,241,0.18);
+    color: #fffaf1;
+}
+
+/* Product/profile CTA baseline: compact but substantial enough for touch. */
+.product-button {
+    min-height: 46px;
+    padding: 12px 20px;
+    border-radius: var(--button-radius);
+    line-height: 1.2;
+    box-shadow: none;
+    transition: var(--button-transition-calm);
+}
+
+.product-button:hover,
+.product-button:focus-visible {
+    background-color: var(--color-brand-hover);
+    transform: translateY(-1px);
+}
+
+.product-button:hover::after,
+.product-button:focus-visible::after {
+    transform: translateX(3px);
+}
+
+/* Profile page CTAs: same component, slightly more page-level presence. */
+.profile-actions .product-button {
+    min-height: 48px;
+    padding-inline: 22px;
+}
+
+/* Inline card CTA links: refined editorial affordance without button styling. */
+.sme-content a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    border-radius: 6px;
+    transition: color 0.32s ease, text-underline-offset 0.32s ease, background-color 0.32s ease;
+}
+
+.sme-content a:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.sme-content a:focus-visible {
+    background-color: rgba(185,133,77,0.12);
+    outline: 2px solid rgba(185,133,77,0.42);
+    outline-offset: 3px;
+}
+
+/* Mobile/touch: prioritize stable tap targets over hover motion. */
+@media (max-width: 768px) {
+    .btn-primary,
+    .btn-secondary {
+        min-height: 54px;
+        max-width: 300px;
+        padding-block: 15px;
+    }
+
+    .product-button {
+        min-height: 48px;
+        padding-block: 13px;
+    }
+
+    .profile-actions .product-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .product-button:hover,
+    .product-card:hover .product-button {
+        transform: none;
+    }
+
+    .product-button:hover::after,
+    .product-card:hover .product-button::after {
+        transform: none;
+    }
+}
+
+/* ============================================================
+   END BUTTON SYSTEM REFINEMENT PATCH v1.0
+   ============================================================ */
